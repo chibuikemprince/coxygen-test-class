@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Cardano Coxygen</title>
+  </head>
+
+  <body>
+    <h1>Introduction to Cardano Blockchain</h1>
+
+    <button id="btn">Connect Wallet</button>
+
+
+    <p id="msg"> </p>
+
+
+    <p>
+      Cardano is a decentralized, self-sustaining blockchain platform that uses
+      smart contracts to facilitate transactions and enforce legal agreements.
+      It has been developed by the Cardano Foundation and is based on the
+      blockchain technology known as Plutus. Cardano has gained significant
+      traction in the cryptocurrency market, with over 100 million users
+      worldwide.
+    </p>
+
+    <script type="module">
+      import { Lucid } from "https://unpkg.com/lucid-cardano/web/mod.js";
+      const lucid = await Lucid.new();
+
+      document.getElementById("btn").onclick = async function () {
+        try {
+          const api = await window.cardano.nami.enable();
+          const done = await lucid.selectWallet(api);
+          const address = await lucid.wallet.address();
+
+          document.getElementById("msg").innerHTML =
+            "Wallet connected <br/> Wallet Address: " + address;
+        } catch (error) {
+          document.getElementById("msg").innerHTML =
+            "Wallet connection failed ";
+        }
+      };
+    </script>
+  </body>
+</html>

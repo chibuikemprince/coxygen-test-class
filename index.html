@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Coxygen Javascript Call</title>
+  </head>
+
+  <body>
+    <h1 id="heading">Hello Cardano Developer</h1>
+
+    <form>
+      <button id="red">Change Color to Red</button>
+
+      <button id="green">Change Color to Green</button>
+
+      <button id="default">Change Color to Default</button>
+    </form>
+
+    <script>
+      document.getElementById("red").onclick = function (e) {
+        e.preventDefault();
+
+        document.getElementById("heading").style.color = "red";
+      };
+
+      document.getElementById("green").onclick = function (e) {
+        e.preventDefault();
+        document.getElementById("heading").style.color = "green";
+      };
+
+      document.getElementById("default").onclick = function (e) {
+        e.preventDefault();
+        document.getElementById("heading").style.color = "black";
+      };
+    </script>
+  </body>
+</html>
